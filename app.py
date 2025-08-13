@@ -420,7 +420,7 @@ async def extract_all_urls_and_databases(question_text: str) -> dict:
     2. Focus on data sources that are DIRECTLY needed to answer the specific questions being asked
     3. IGNORE example paths like "year=xyz/court=xyz" - these are just structure examples, not real URLs
     4. IGNORE reference links that are just for context (like documentation websites)
-    5. Only extract data sources that have COMPLETE, USABLE URLs/paths
+    5. Only extract data sources that have COMPLETE, USABLE URLs/paths.
     
     DATA SOURCE TYPES TO EXTRACT:
     - Complete S3 URLs with wildcards (s3://bucket/path/file.parquet)
@@ -1821,7 +1821,7 @@ async def aianalyst(request: Request):
             "(2) Loads CSVs directly from local paths provided (e.g., ProvidedCSV.csv) or uses DuckDB FROM clauses "
             "for remote sources; (3) Performs the requested computations/plots; (4) Prints ONLY a valid JSON object "
             "to stdout via json.dumps with final results; (5) Do not access any placeholder files or URLs not in the "
-            "DATA SUMMARY; (6) Import required libraries; (7) Avoid interactive UI."
+            "DATA SUMMARY; (6) Import required libraries; (7) Avoid interactive UI. (8) DataFrame.applymap has been deprecated. Use DataFrame.map instead."
         ),
     )
 
